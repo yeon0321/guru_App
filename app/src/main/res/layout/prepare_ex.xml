@@ -87,7 +87,7 @@
         android:fitsSystemWindows="true"
         android:visibility="invisible"
         app:headerLayout="@layout/header"
-        app:menu="@layout/menu_list">
+        app:menu="@menu/menu_list">
 
     </com.google.android.material.navigation.NavigationView>
 

@@ -6,8 +6,13 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
+import android.view.Menu
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 
 class eqList : AppCompatActivity() {
 
@@ -52,5 +57,14 @@ class eqList : AppCompatActivity() {
 
         }
     }
+
+   private fun setDrawerLayout(drawerLayout: DrawerLayout,navigationView: View){
+       drawerLayout.openDrawer(Gravity.LEFT)
+       drawerLayout.let{
+           if(it.isDrawerOpen(GravityCompat.START)){
+               it.closeDrawer(GravityCompat.START)
+           }
+       }
+   }
 }
 
