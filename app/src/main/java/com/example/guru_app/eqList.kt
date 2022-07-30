@@ -58,13 +58,6 @@ class eqList : AppCompatActivity() {
         }
     }
 
-   private fun setDrawerLayout(drawerLayout: DrawerLayout,navigationView: View){
-       drawerLayout.openDrawer(Gravity.LEFT)
-       drawerLayout.let{
-           if(it.isDrawerOpen(GravityCompat.START)){
-               it.closeDrawer(GravityCompat.START)
-           }
-       }
-   }
+
 }
 
