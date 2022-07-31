@@ -30,7 +30,10 @@ class subActivity3 : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     // 드로어 내 아이템 클릭 이벤트 처리하는 함수
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.menu1_parkMap-> Toast.makeText(this,"menu_item1 실행", Toast.LENGTH_SHORT).show()
+            R.id.menu1_parkMap-> {
+                val intent1 = Intent(this, MainActivity::class.java)
+                startActivity(intent1)
+            }
             R.id.menu2_exList-> Toast.makeText(this,"menu_item2 실행", Toast.LENGTH_SHORT).show()
             R.id.menu3_preEx-> {
                 val intent3 = Intent(this, subActivity3::class.java)
