@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/menu_item1"
+        android:id="@+id/menu1_parkMap"
         android:title="공원 지도" />
     <item
-        android:id="@+id/menu_item2"
+        android:id="@+id/menu2_exList"
         android:title="운동기구 목록" />
     <item
-        android:id="@+id/menu_item3"
+        android:id="@+id/menu3_preEx"
         android:title="준비운동" />
     <item
-        android:id="@+id/menu_item4"
+        android:id="@+id/menu4_exDiary"
         android:title="운동 기록" />
 </menu>

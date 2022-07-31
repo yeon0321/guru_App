@@ -9,11 +9,6 @@
     tools:openDrawer="start">
 
 
-    <include
-        layout="@layout/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -90,12 +85,6 @@
         app:menu="@menu/menu_list">
 
     </com.google.android.material.navigation.NavigationView>
-
-
-
-
-
-
 
 
 
