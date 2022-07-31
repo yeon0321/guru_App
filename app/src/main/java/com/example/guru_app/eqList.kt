@@ -11,18 +11,18 @@ import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.Toast
+import android.widget.*
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_eq_list.*
 
 class eqList : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    lateinit var myHelper: myDBHelper
+    lateinit var myHelper: DBManager
     lateinit var sqlDB:SQLiteDatabase
-    lateinit var listView: ListView
+    lateinit var eqbutton:Button
+    lateinit var layout:LinearLayout
     //추가
     lateinit var navigationView: NavigationView
     lateinit var drawerLayout: DrawerLayout
@@ -30,7 +30,8 @@ class eqList : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_eq_list)
-        listView=findViewById(R.id.listView)
+        layout=findViewById(R.id.content)
+        eqbutton=findViewById(R.id.eqButton)
 
         //추가
         drawerLayout = findViewById(R.id.drawer_layout)
@@ -39,37 +40,49 @@ class eqList : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListe
         navigationView = findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this) //navigation 리스너
 
-        myHelper=myDBHelper(this)
 
-        sqlDB=myHelper.readableDatabase
+        myHelper = DBManager(this, "eqListDB", null, 1)
 
-        var cursor: Cursor
-        cursor=sqlDB.rawQuery("SELECT *FROM listTBL",null)
+        sqlDB = myHelper.readableDatabase
 
-        var strNames=ArrayList<String>()
+        val cursor: Cursor
+        cursor = sqlDB.rawQuery("SELECT *FROM listTBL", null)
+        eqbutton.setOnClickListener {
 
-        while (cursor.moveToNext()){
-            strNames.add(cursor.getString(0))
+            var num: Int = 0
+            while (cursor.moveToNext()) {
+                val str_name = cursor.getString(0)
+
+                var layout_item: LinearLayout = LinearLayout(this)
+                layout_item.orientation = LinearLayout.VERTICAL
+                layout_item.setPadding(20, 10, 20, 10)
+                layout_item.id = num
+
+                var tvName: TextView = TextView(this)
+                tvName.text = str_name
+                tvName.textSize=20F
+                layout_item.addView(tvName)
+
+                layout_item.setOnClickListener {
+                    val intent = Intent(this, contentActivity::class.java)
+                    intent.putExtra("intent_name", str_name)
+                    startActivity(intent)
+                }
+                layout.addView(layout_item)
+                num++;
+            }
+
+            cursor.close()
+            sqlDB.close()
+
+
         }
-        val list_Adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1,strNames)
-        listView.adapter=list_Adapter
-        cursor.close()
 
 
 
     }
 
-    inner class myDBHelper(context: Context): SQLiteOpenHelper(context,"listDB",null,1){
-        override fun onCreate(db: SQLiteDatabase?) {
-            db!!.execSQL("CREATE TABLE listTBL(gName CHAR(20) PRIMARY KEY);")
-        }
 
-        override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-            db!!.execSQL("DROP TABLE IF EXISTS listTBL")
-            onCreate(db)
-
-        }
-    }
 
     // 툴바 메뉴 버튼이 클릭 됐을 때 실행하는 함수
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
