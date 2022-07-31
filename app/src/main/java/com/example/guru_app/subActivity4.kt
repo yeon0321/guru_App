@@ -34,7 +34,10 @@ class subActivity4 : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val intent1 = Intent(this, MainActivity::class.java)
                 startActivity(intent1)
             }
-            R.id.menu2_exList-> Toast.makeText(this,"menu_item2 실행", Toast.LENGTH_SHORT).show()
+            R.id.menu2_exList-> {
+                val intent2 = Intent(this, eqList::class.java)
+                startActivity(intent2)
+            }
             R.id.menu3_preEx-> {
                 val intent3 = Intent(this, subActivity3::class.java)
                 startActivity(intent3)
