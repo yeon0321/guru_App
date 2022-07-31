@@ -13,6 +13,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
@@ -90,10 +91,7 @@ class eqList : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListe
                 val intent1 = Intent(this, MainActivity::class.java)
                 startActivity(intent1)
             }
-            R.id.menu2_exList-> {
-                val intent2 = Intent(this, eqList::class.java)
-                startActivity(intent2)
-            }
+            R.id.menu2_exList-> Toast.makeText(this,"현재 페이지입니다.", Toast.LENGTH_SHORT).show()
             R.id.menu3_preEx-> {
                 val intent3 = Intent(this, subActivity3::class.java)
                 startActivity(intent3)

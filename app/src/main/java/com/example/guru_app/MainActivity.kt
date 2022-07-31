@@ -228,10 +228,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     // 드로어 내 아이템 클릭 이벤트 처리하는 함수
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.menu1_parkMap-> {
-                val intent1 = Intent(this, MainActivity::class.java)
-                startActivity(intent1)
-            }
+            R.id.menu1_parkMap-> Toast.makeText(this,"현재 페이지입니다.",Toast.LENGTH_SHORT).show()
+
             R.id.menu2_exList-> {
                 val intent2 = Intent(this, eqList::class.java)
                 startActivity(intent2)
