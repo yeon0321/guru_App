@@ -74,10 +74,8 @@ class subActivity3 : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val intent2 = Intent(this, eqList::class.java)
                 startActivity(intent2)
             }
-            R.id.menu3_preEx-> {
-                val intent3 = Intent(this, subActivity3::class.java)
-                startActivity(intent3)
-            }
+            R.id.menu3_preEx-> Toast.makeText(this,"현재 페이지입니다.",Toast.LENGTH_SHORT).show()
+
             R.id.menu4_exDiary-> {
                 val intent4 = Intent(this, subActivity4::class.java)
                 startActivity(intent4)

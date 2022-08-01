@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.guru_app.databinding.ActivityMainBinding
@@ -117,10 +118,8 @@ class subActivity4 : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val intent3 = Intent(this, subActivity3::class.java)
                 startActivity(intent3)
             }
-            R.id.menu4_exDiary-> {
-                val intent4 = Intent(this, subActivity4::class.java)
-                startActivity(intent4)
-            }
+            R.id.menu4_exDiary-> Toast.makeText(this,"현재 페이지입니다.", Toast.LENGTH_SHORT).show()
+
         }
         return false
 
