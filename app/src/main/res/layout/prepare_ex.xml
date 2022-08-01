@@ -20,9 +20,10 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="100dp"
             android:text="운동 전 준비 운동은 필수입니다."
-            android:layout_gravity="center"
+            android:textSize="24sp"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <TextView
@@ -45,6 +46,7 @@
         <Button
             android:id="@+id/preEx_lowerbody"
             android:layout_width="220dp"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="하체 집중"></Button>
@@ -59,11 +61,11 @@
             android:text="상체 집중"></Button>
 
         <Button
-            android:id="@+id/preEx_stretching"
+            android:id="@+id/preEx_stretch"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
 
             android:text="스트레칭"></Button>
 
