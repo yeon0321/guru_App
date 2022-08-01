@@ -19,6 +19,8 @@
         android:theme="@style/Theme.Guru_App"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+
         <activity
             android:name=".contentActivity"
             android:exported="false" />
@@ -45,6 +47,13 @@
         <activity android:name=".prepare_ex_lowerbody" />
         <activity android:name=".prepare_ex_stretching" />
         <activity android:name=".prepare_ex_upperbody" />
+
     </application>
+
+    <queries>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START" />
+        </intent>
+    </queries>
 
 </manifest>

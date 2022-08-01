@@ -83,9 +83,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
 
-
-
-
         /////////////////////////////////////////////////////
         mapView = binding.mapView
 
